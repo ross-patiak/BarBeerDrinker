@@ -1,0 +1,34 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Find your drinkers!</h1>
+      <p class="lead">This page can be used to see all the drinkers in our system</p>
+      <p-dropdown *ngIf="manufacturerOptions" [ngClass]="{ 'no-option-selected': selectedManufacturer === undefined || selectedManufacturer === null }"
+        placeholder="Filter by manufacturer" [options]="manufacturerOptions" [(ngModel)]="selectedManufacturer" showClear="true"
+        (onChange)="filterBeers($event.value)"></p-dropdown>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h2 class="text-center font-weight-light">Drinkers</h2>
+    <p-table [value]="drinkers" [paginator]="true" [rows]="50">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Phone</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-drinker>
+        <tr>
+          <td><a [routerLink]="['/drinker/'+ drinker.cust_id]">{{ drinker.drinker_name }}</a></td>
+          <td>{{ drinker.addr }}</td>
+          <td>{{ drinker.city }}</td>
+          <td>{{ drinker.state }}</td>
+          <td>{{ drinker.phone }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <br><br>
+  </div>

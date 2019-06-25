@@ -1,0 +1,68 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">{{ drinker_details?.drinker_name }}</h1>
+      <p class="drinker-details" *ngIf="drinker_details">
+          {{ drinker_details?.addr }} <span *ngIf="drinker_details.addr && drinker_details.city">|</span> {{ drinker_details?.city }}
+          <br>
+          {{ drinker_details?.phone }}
+      </p>
+
+      <span *ngIf="liked_beers; else noLikes">
+        <strong>Likes: </strong>
+      </span>
+
+      <ul id="horizontal">
+          <li id="horizontal" *ngFor="let beer of liked_beers"><a [routerLink]="['/beer/'+ beer.beer_id]">{{ beer.beer_name }}</a>, </li>
+      </ul> 
+      <br>
+      <span *ngIf="frequents; else noFrequents">
+          <strong>Frequents: </strong>
+        </span>
+  
+        <ul id="horizontal">
+            <li id="horizontal" *ngFor="let bar of frequents">
+                <a [routerLink]="['/bar/'+ bar.bar_id]">{{ bar.bar_name }}</a>
+              , </li>
+        </ul>  
+
+      <!-- <p *ngIf="frequents; else noFrequents">
+          Likes: {{ liked_beers }}
+        </p> -->
+    </div>
+</div>
+  
+  <!-- <div class="container">
+    <div *ngIf="liked_beers">
+
+      <h2 class="text-center font-weight-light">Liked Beers</h2>
+      <p-table [value]="liked_beers" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-beer>
+            <tr>
+              <td><a [routerLink]="['/beer/'+ beer.beer_id]">{{ beer.beer_name }}</a></td>
+              <td>{{ beer.manf }}</td>
+              <td>{{ beer.likes }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+    </div> -->
+      
+     
+    <!-- <br><br>
+</div> -->
+
+  <ng-template #noLikes>
+    <p><strong>Likes:</strong> none</p>
+  </ng-template>
+
+  <ng-template #noFrequents>
+      <p><strong>Frequents:</strong> none</p>
+  </ng-template>
+  
