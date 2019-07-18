@@ -5,6 +5,12 @@ import { TableModule } from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { FusionChartsModule } from "angular-fusioncharts";
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +21,9 @@ import { BeerDetailsComponent } from './components/beer-details/beer-details.com
 import { BeersComponent } from './components/beers/beers.component';
 import { DrinkersComponent } from './components/drinkers/drinkers.component';
 import { DrinkerDetailsComponent } from './components/drinker-details/drinker-details.component';
+import { SalesGraphComponent } from './components/beer-details/sales-graph/sales-graph.component';
+
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -25,7 +34,8 @@ import { DrinkerDetailsComponent } from './components/drinker-details/drinker-de
     BeerDetailsComponent,
     BeersComponent,
     DrinkersComponent,
-    DrinkerDetailsComponent
+    DrinkerDetailsComponent,
+    SalesGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,8 @@ import { DrinkerDetailsComponent } from './components/drinker-details/drinker-de
     AppRoutingModule,
     TableModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    FusionChartsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

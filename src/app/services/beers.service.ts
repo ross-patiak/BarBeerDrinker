@@ -22,4 +22,18 @@ export class BeersService {
   getBeerTotalLikes(id) {
     return this.http.get('/api/beer/' + id +'/total-likes');
   }
+
+  getTopBeerDrinkers(id) {
+    return this.http.get<any[]>(`/api/beer/${id}/top-drinkers`);
+  }
+
+  getTopSellingBars(id) {
+    return this.http.get<any[]>(`/api/beer/${id}/top-selling-bars`);
+  }
+
+  getBeerSalesByDay(id) {
+    return this.http.get<any[]>(`/api/beer/${id}/beer-sales`);
+  }
+  
+
 }
