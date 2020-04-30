@@ -24,7 +24,7 @@
     "angularjs-fusioncharts": "^5.0.2",
     "bootstrap": "^4.3.1",
     "fusioncharts": "^3.13.5-sr.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0",
     "primeicons": "^1.0.0",
     "primeng": "^8.0.0",
